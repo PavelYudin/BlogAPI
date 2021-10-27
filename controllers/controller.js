@@ -13,6 +13,7 @@ exports.createAutor=(req,res)=>{
 exports.createArticle=(req,res)=>{
     if(!req.body) return res.sendStatus(400);  
     let {title,contents,nameAutor,categories} = req.body;
+    if(!Array.isArray(categories)) return res.sendStatus(400);  
     if(!title || !contents || !nameAutor || !categories.length) return res.sendStatus(400);
     title=title.trim();
     contents=contents.trim();
